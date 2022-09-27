@@ -2,6 +2,7 @@ package com.example.banco_utn_gts;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -30,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         binding.simularButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MainActivity.this, SimularPlazoFijo.class);
+                startActivity(intent);
             }
         });
     }

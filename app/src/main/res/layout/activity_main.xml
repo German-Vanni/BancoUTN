@@ -59,7 +59,8 @@
             android:text="Moneda" />
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_moneda">
 
         </Spinner>
 
@@ -68,7 +69,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIMULAR">
+        android:text="SIMULAR"
+        android:id="@+id/simular_button">
 
     </Button>
     <Button

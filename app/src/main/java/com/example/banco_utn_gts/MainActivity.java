@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.example.banco_utn_gts.databinding.ActivityMainBinding;
@@ -20,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
     Boolean simulado = false;
     int diasSimulados = -1;
     Double capitalInvertirSimulado = -1.;
-    String nombre = "";
-    String apellido = "";
+    String nombre;
+    String apellido;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +37,17 @@ public class MainActivity extends AppCompatActivity {
         listaDeMonedas.add("DOLAR");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listaDeMonedas);
 
-        binding.spinnerMoneda.setAdapter(adapter);
+        //nombre = binding.editNombre.getText().toString();
+        //apellido = binding.editApellido.getText().toString();
+        if(savedInstanceState != null){
+            nombre = savedInstanceState.getString("nombre");
+            apellido = savedInstanceState.getString("apellido");
+            binding.editNombre.setText(nombre);
+            binding.editApellido.setText((apellido));
+        }
 
+        binding.spinnerMoneda.setAdapter(adapter);
+        getSupportActionBar().setTitle("Constituir Plazo Fijo");
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             if (bundle.containsKey("plazo") && bundle.containsKey("capitalInvertir")) {
@@ -58,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Validar
                 String capitalString = String.format("%.2f",capitalInvertirSimulado);
                 String message = "Tu plazo fijo de ";
                 message += capitalString + " por " + diasSimulados + " días ha sido constituido!";
@@ -78,5 +89,29 @@ public class MainActivity extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        nombre = binding.editNombre.getText().toString();
+        apellido = binding.editApellido.getText().toString();
+        outState.putString("nombre",nombre);
+        outState.putString("apellido",apellido);
+        binding.editNombre.onSaveInstanceState();
+
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState){
+        super.onRestoreInstanceState(savedInstanceState);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        nombre = savedInstanceState.getString("nombre");
+        apellido = savedInstanceState.getString("apellido");
+        binding.editNombre.setText(nombre);
+        binding.editApellido.setText(apellido);
     }
 }

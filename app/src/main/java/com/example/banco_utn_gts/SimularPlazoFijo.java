@@ -32,6 +32,8 @@ public class SimularPlazoFijo extends AppCompatActivity {
         binding = ActivitySimularPlazoFijoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().setTitle("Simular Plazo Fijo");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //TEST
 //        binding.capitalInvertirEditText.setText("100000");
 //        binding.tasaNominalAnualEditText.setText("69.5");

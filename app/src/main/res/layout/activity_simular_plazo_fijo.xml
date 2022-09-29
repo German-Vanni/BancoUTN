@@ -11,24 +11,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:layout_weight="1">
 
         <ImageView
             android:layout_width="64sp"
             android:layout_height="64sp"
+            android:layout_marginRight="50dp"
+            android:layout_gravity="center"
             android:src="@drawable/utn_logo"></ImageView>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Banco UTN Santa Fe"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:layout_weight="1"
         >
 
@@ -49,6 +54,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:layout_weight="1">
 
         <TextView
@@ -68,6 +74,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="24dp">
 
         <TextView
@@ -87,6 +94,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
         android:orientation="vertical">
 
         <SeekBar
@@ -128,12 +136,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:text="Simulador Plazo Fijo en Pesos"
             android:textAlignment="center"
             android:textStyle="bold" />
@@ -149,7 +160,7 @@
                 android:id="@+id/plazo_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plazo" />
+                android:text="Plazo: " />
 
         </LinearLayout>
 
@@ -162,7 +173,7 @@
                 android:id="@+id/capital_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Capital" />
+                android:text="Capital :" />
 
         </LinearLayout>
 
@@ -176,7 +187,7 @@
                 android:id="@+id/intereses_ganados_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Intereses ganados:" />
+                android:text="Intereses ganados: " />
 
         </LinearLayout>
 
@@ -190,7 +201,7 @@
                 android:id="@+id/monto_total_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Monto total:" />
+                android:text="Monto total: " />
 
         </LinearLayout>
 
@@ -204,7 +215,7 @@
                 android:id="@+id/monto_total_anual_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Monto total anual:" />
+                android:text="Monto total anual: " />
         </LinearLayout>
 
 

@@ -74,8 +74,8 @@ public class SimularPlazoFijo extends AppCompatActivity {
         montoTotalAnualResultTextView = new TextView(getApplicationContext());
 
 
-        String plazoString = " 3 Días";
-        plazoResultTextView.setText(plazoString);
+
+
         binding.resultadoPlazoLinearlayout.addView(plazoResultTextView);
         binding.resultadoCapitalLinearlayout.addView(capitalResultTextView);
         binding.resultadoInteresesGanadosLinearlayout.addView(interesesResultTextView);

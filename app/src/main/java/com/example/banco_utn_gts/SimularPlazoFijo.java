@@ -14,6 +14,9 @@ import com.example.banco_utn_gts.databinding.ActivitySimularPlazoFijoBinding;
 
 public class SimularPlazoFijo extends AppCompatActivity {
     ActivitySimularPlazoFijoBinding binding;
+    private String nombre = "";
+    private String apellido = "";
+    private String moneda = null;
     private double tasaNomAnual = -1;
     private double tasaEfecAnual = -1;
     private double capitalInvertir  = -1;
@@ -34,10 +37,18 @@ public class SimularPlazoFijo extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Simular Plazo Fijo");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //TEST
 //        binding.capitalInvertirEditText.setText("100000");
 //        binding.tasaNominalAnualEditText.setText("69.5");
 //        binding.tasaEfectivaAnualEditText.setText("96.33");
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            nombre = bundle.getString("nombre");
+            apellido = bundle.getString("apellido");
+            moneda = bundle.getString("moneda");
+        }
 
         binding.confirmarButton.setEnabled(false);
 
@@ -47,7 +58,7 @@ public class SimularPlazoFijo extends AppCompatActivity {
         binding.plazoSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                plazo = seekBar.getProgress()*30;
+                plazo = seekBar.getProgress() * 30;
                 String plazoString = " " + plazo  + " Días";
                 plazoResultTextView.setText(plazoString);
                 binding.seekbarLabelTextView.setText(plazoString);
@@ -87,13 +98,21 @@ public class SimularPlazoFijo extends AppCompatActivity {
         binding.confirmarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i = new Intent(SimularPlazoFijo.this, MainActivity.class);
                 i.putExtra("capitalInvertir", capitalInvertir);
                 i.putExtra("plazo", plazo);
+                i.putExtra("nombre", nombre);
+                i.putExtra("apellido", apellido);
+                if(moneda != null && moneda != ""){
+                    i.putExtra("moneda", moneda);
+                }
                 startActivity(i);
             }
         });
     }
+
+
 
 
     private class InputValuesTextWatcher implements TextWatcher {
@@ -109,7 +128,7 @@ public class SimularPlazoFijo extends AppCompatActivity {
                 calcular();
             }
             else{
-//              binding.confirmarButton.setSelected(false);
+
                 binding.confirmarButton.setEnabled(false);
             }
         }

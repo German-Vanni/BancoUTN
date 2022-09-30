@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="12dp"
-        android:inputType="text"
+        android:inputType="textCapSentences"
         android:id="@+id/edit_nombre"/>
     </LinearLayout>
 

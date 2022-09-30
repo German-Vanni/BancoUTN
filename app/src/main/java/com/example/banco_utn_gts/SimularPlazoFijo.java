@@ -1,12 +1,15 @@
 package com.example.banco_utn_gts;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
 import android.view.View;
+import android.view.MenuItem;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -147,6 +150,22 @@ public class SimularPlazoFijo extends AppCompatActivity {
         montoTotalResultTextView.setText(String.format("%.2f",montoTotal));
         Double montoTotalAnual = (capitalInvertir * (tasaNomAnual / 100)) + capitalInvertir;
         montoTotalAnualResultTextView.setText(String.format("%.2f", montoTotalAnual));
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent i = new Intent(SimularPlazoFijo.this, MainActivity.class);
+                i.putExtra("nombre", nombre);
+                i.putExtra("apellido", apellido);
+                if(moneda != null && moneda != ""){
+                    i.putExtra("moneda", moneda);
+                }
+                startActivity(i);
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     protected Boolean CheckValidValuesOnInput(){

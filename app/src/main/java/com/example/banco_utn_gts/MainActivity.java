@@ -98,9 +98,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
-
-
                 String capitalString = String.format("%.2f",capitalInvertirSimulado);
                 String message = "Tu plazo fijo de ";
                 String monedaString = binding.spinnerMoneda.getSelectedItem().toString().toLowerCase();

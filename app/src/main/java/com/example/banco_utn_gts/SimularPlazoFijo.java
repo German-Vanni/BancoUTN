@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.example.banco_utn_gts.databinding.ActivitySimularPlazoFijoBinding;
 
+import java.util.Locale;
+
 public class SimularPlazoFijo extends AppCompatActivity {
     ActivitySimularPlazoFijoBinding binding;
     private String nombre = "";
@@ -52,6 +54,9 @@ public class SimularPlazoFijo extends AppCompatActivity {
             apellido = bundle.getString("apellido");
             moneda = bundle.getString("moneda");
         }
+        String tituloResultado =  binding.tituloResultadoTextview.getText().toString();
+        tituloResultado += moneda.substring(0,1).toUpperCase() + moneda.substring(1).toLowerCase();
+        binding.tituloResultadoTextview.setText(tituloResultado);
 
         binding.confirmarButton.setEnabled(false);
 

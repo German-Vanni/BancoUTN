@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+   /* @Override
     protected void onSaveInstanceState(Bundle outState){
         super.onSaveInstanceState(outState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -170,5 +170,5 @@ public class MainActivity extends AppCompatActivity {
         apellido = savedInstanceState.getString("apellido");
         binding.editNombre.setText(nombre);
         binding.editApellido.setText(apellido);
-    }
+    }*/
 }
